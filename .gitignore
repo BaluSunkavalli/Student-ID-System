@@ -1,0 +1,7 @@
+student_system
+test
+*.o
+*.exe
+*.out
+data/students.txt
+.vscode
