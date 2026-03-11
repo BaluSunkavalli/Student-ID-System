@@ -5,28 +5,30 @@
 
 extern char* generateID();
 
-Student* createStudent(char id[], char name[])
+Student* createStudent(char id[], char name[], char parentName[])
 {
     Student *newNode = malloc(sizeof(Student));
 
-    strcpy(newNode->id,id);
-    strcpy(newNode->name,name);
+    strcpy(newNode->id, id);
+    strcpy(newNode->name, name);
+    strcpy(newNode->parentName, parentName);
 
-    newNode->next=NULL;
+    newNode->next = NULL;
 
     return newNode;
 }
 
-void addStudent(Student **head, char name[])
+void addStudent(Student **head, char name[], char parentName[])
 {
     char *id = generateID();
 
-    Student *node = createStudent(id,name);
+    Student *node = createStudent(id, name, parentName);
 
-    node->next=*head;
-    *head=node;
+    node->next = *head;
+    *head = node;
 
-    printf("Student Added: %s %s\n",id,name);
+    printf("Student Added\n");
+    printf("ID: %s\nName: %s\nParent: %s\n", id, name, parentName);
 }
 
 Student* searchStudent(Student *head, char id[])
@@ -71,8 +73,11 @@ void displayStudents(Student *head)
 {
     while(head)
     {
-        printf("%s %s\n",head->id,head->name);
-        head=head->next;
+        printf("ID: %s\n", head->id);
+        printf("Name: %s\n", head->name);
+        printf("Parent: %s\n\n", head->parentName);
+
+        head = head->next;
     }
 }
 
@@ -84,6 +89,11 @@ void updateStudent(Student *head, char id[])
     {
         printf("Enter new name: ");
         scanf("%s",s->name);
+
+        printf("Enter parent name: ");
+        scanf("%s",s->parentName);
+
+        printf("Student updated\n");
     }
 }
 

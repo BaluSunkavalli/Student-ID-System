@@ -1,4 +1,4 @@
-# Student ID Generation System 
+# Student ID Generation System (Advanced C Project)
 
 A modular C-based student record management system implementing data structures and system-level features.
 
@@ -26,7 +26,7 @@ make
 
 ## Run
 
-./student_system add Balu
+./student_system add Rahul
 ./student_system list
 ./student_system search SID001
 ./student_system delete SID001
